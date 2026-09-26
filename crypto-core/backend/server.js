@@ -4,6 +4,8 @@ const dotenv = require("dotenv");
 
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
+const paperRoutes = require("./routes/paperRoutes");
+const auditRoutes = require("./routes/auditRoutes");
 
 dotenv.config();
 
@@ -18,6 +20,12 @@ connectDB();
 
 // Authentication routes
 app.use("/api/auth", authRoutes);
+
+// Paper routes
+app.use("/api/papers", paperRoutes);
+
+// Audit routes
+app.use("/api/audit", auditRoutes);
 
 // Test route
 app.get("/", (req, res) => {
